@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MealOrdering.Server.Data.Migrations
 {
-    public partial class initNewMig : Migration
+    public partial class InitMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,7 @@ namespace MealOrdering.Server.Data.Migrations
                     createdate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false, defaultValueSql: "NOW()"),
                     name = table.Column<string>(type: "character varying", maxLength: 100, nullable: true),
                     web_url = table.Column<string>(type: "character varying", maxLength: 500, nullable: true),
-                    isactive = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "true")
+                    isactive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,7 +36,8 @@ namespace MealOrdering.Server.Data.Migrations
                     first_name = table.Column<string>(type: "character varying", maxLength: 100, nullable: true),
                     last_name = table.Column<string>(type: "character varying", maxLength: 100, nullable: true),
                     email_address = table.Column<string>(type: "character varying", maxLength: 100, nullable: true),
-                    isactive = table.Column<bool>(type: "boolean", nullable: false, defaultValueSql: "true")
+                    password = table.Column<string>(type: "character varying", maxLength: 250, nullable: true),
+                    isactive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {

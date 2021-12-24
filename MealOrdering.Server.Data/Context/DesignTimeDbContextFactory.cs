@@ -10,7 +10,7 @@ namespace MealOrdering.Server.Data.Context
     {
         public MealOrderingDbContext CreateDbContext(string[] args)
         {
-            String connectionString = "User ID=pgloader_user;password=pgloader_user;Host=db.postgres.local;Port=5432;Database=mealordering;SearchPath=public";
+            String connectionString = "User ID=mealUSer;password=mealUser123;Host=localhost;Port=5432;Database=meal;SearchPath=public";
 
             var builder = new DbContextOptionsBuilder<MealOrderingDbContext>();
             

@@ -51,7 +51,7 @@ namespace MealOrdering.Server
 
             services.AddDbContext<MealOrderingDbContext>(config => 
             {
-                config.UseNpgsql("User ID=pgloader_user;password=pgloader_user;Host=db.postgres.local;Port=5432;Database=mealordering;SearchPath=public");
+                config.UseNpgsql("User ID=mealUSer;password=mealUser123;Host=localhost;Port=5432;Database=meal;SearchPath=public");
                 config.EnableSensitiveDataLogging();
             });
 

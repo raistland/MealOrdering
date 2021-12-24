@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MealOrdering.Server.Data.Migrations
 {
     [DbContext(typeof(MealOrderingDbContext))]
-    [Migration("20201219213452_initNewMig")]
-    partial class initNewMig
+    [Migration("20211223074007_InitMigration")]
+    partial class InitMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -120,10 +120,8 @@ namespace MealOrdering.Server.Data.Migrations
                         .HasDefaultValueSql("NOW()");
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
                         .HasColumnName("isactive")
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("true");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .HasColumnName("name")
@@ -166,15 +164,18 @@ namespace MealOrdering.Server.Data.Migrations
                         .HasMaxLength(100);
 
                     b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
                         .HasColumnName("isactive")
-                        .HasColumnType("boolean")
-                        .HasDefaultValueSql("true");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("LastName")
                         .HasColumnName("last_name")
                         .HasColumnType("character varying")
                         .HasMaxLength(100);
+
+                    b.Property<string>("Password")
+                        .HasColumnName("password")
+                        .HasColumnType("character varying")
+                        .HasMaxLength(250);
 
                     b.HasKey("Id")
                         .HasName("pk_user_id");
@@ -201,7 +202,7 @@ namespace MealOrdering.Server.Data.Migrations
 
             modelBuilder.Entity("MealOrdering.Server.Data.Models.Orders", b =>
                 {
-                    b.HasOne("MealOrdering.Server.Data.Models.Users", "CreateUser")
+                    b.HasOne("MealOrdering.Server.Data.Models.Users", "CreatedUser")
                         .WithMany("Orders")
                         .HasForeignKey("CreatedUserId")
                         .HasConstraintName("fk_user_order_id")
